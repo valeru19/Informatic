@@ -1,26 +1,16 @@
-import numpy as np
-import matplotlib.pyplot as plt
+# This is a sample Python script.
 
-# Функция для вычисления первых N чисел Фибоначчи
-def fibonacci(n):
-    fib = np.zeros(n, dtype=int)
-    fib[0] = 0
-    fib[1] = 1
-    for i in range(2, n):
-        fib[i] = fib[i-1] + fib[i-2]
-    return fib
+# Press Shift+F10 to execute it or replace it with your code.
+# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
-# Ввод количества чисел Фибоначчи
-N = int(input("Введите количество чисел Фибоначчи: "))
 
-# Вычисление чисел Фибоначчи
-fib_numbers = fibonacci(N)
+def print_hi(name):
+    # Use a breakpoint in the code line below to debug your script.
+    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
-# Построение графика
-plt.plot(range(N), fib_numbers, marker='o', color='b', label='Числа Фибоначчи')
-plt.title("График чисел Фибоначчи")
-plt.xlabel("Номер числа Фибоначчи")
-plt.ylabel("Значение числа Фибоначчи")
-plt.grid(True)
-plt.legend()
-plt.show()
+
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
+    print_hi('PyCharm')
+
+# See PyCharm help at https://www.jetbrains.com/help/pycharm/

@@ -6,6 +6,8 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="main.exit_button" />
+          <option value="matplotlib.pyplot" />
+          <option value="sympy" />
         </list>
       </option>
     </inspection_tool>
