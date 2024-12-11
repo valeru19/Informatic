@@ -1,0 +1,39 @@
+name: Python Tests
+
+on:
+  push:
+    branches:
+      - main  # Запускать workflow при пуше в main ветку
+  pull_request:
+    branches:
+      - main  # Также запускать при создании PR на main ветку
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Используем последнюю версию Ubuntu для CI
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'  # Укажите версию Python, которую используете
+
+    - name: Install dependencies
+      run: |
+        python -m venv venv  # Создание виртуального окружения
+        source venv/bin/activate  # Активация виртуального окружения
+        pip install -r requirements.txt  # Установка зависимостей
+
+    - name: Run tests
+      run: |
+        source venv/bin/activate  # Активация виртуального окружения
+        pytest --html=report.html --self-contained-html  # Запуск тестов и генерация отчета
+
+    - name: Upload test report
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-report
+        path: report.html  # Загружаем отчет как артефакт
